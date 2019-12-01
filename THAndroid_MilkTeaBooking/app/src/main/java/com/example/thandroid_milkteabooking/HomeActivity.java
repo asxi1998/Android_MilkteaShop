@@ -1,13 +1,16 @@
 package com.example.thandroid_milkteabooking;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ActionMenuView;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
@@ -16,6 +19,7 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationView;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -26,6 +30,7 @@ public class HomeActivity extends AppCompatActivity {
     LinearLayout linearLayout;
     BottomNavigationView navView;
     FrameLayout frameLayout ;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +41,7 @@ public class HomeActivity extends AppCompatActivity {
         linearLayout=findViewById(R.id.linearLayout);
         frameLayout =findViewById(R.id.framelayoutHome);
         btn= findViewById(R.id.imageButtonshopping);
+
 
         navView = findViewById(R.id.bottomNavigationView);
         loadFragment(new HomeFragment());
@@ -61,11 +67,21 @@ public class HomeActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Fragment fragment = new OrderFragment();
                 linearLayout.setVisibility(View.GONE);
+                btn.setVisibility(View.VISIBLE);
                 loadFragment(fragment);
             }
         });
-
-
+        //navigationView.setVisibility(View.GONE);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment fragment;
+                fragment = new GetOrderFragment();
+                linearLayout.setVisibility(View.GONE);
+                btn.setVisibility(View.GONE);
+                loadFragment(fragment);
+            }
+        });
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener = new BottomNavigationView.OnNavigationItemSelectedListener() {

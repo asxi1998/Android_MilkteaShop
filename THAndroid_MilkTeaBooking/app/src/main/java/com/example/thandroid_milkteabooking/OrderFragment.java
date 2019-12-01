@@ -67,13 +67,7 @@ public class OrderFragment extends Fragment {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
     }
 
-    public void Up(Context context){
-        Toast.makeText(context,"+1",Toast.LENGTH_LONG).show();
-    }
 
-    public void Down(Context context){
-        Toast.makeText(context,"-1",Toast.LENGTH_LONG).show();
-    }
 
 
 

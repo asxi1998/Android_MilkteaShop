@@ -36,10 +36,13 @@ public class orderAdapter extends RecyclerView.Adapter<orderAdapter.MyViewHolder
         viewHolder.up.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                viewHolder.number.setVisibility(View.VISIBLE);
+
                 int sl = parseInt(orderList.get(viewHolder.getAdapterPosition()).getSoluong()) + 1;
                 orderList.get(viewHolder.getAdapterPosition()).setSoluong(sl+"");
 //                OrderFragment up = new OrderFragment();
 //                up.Up(context);
+                viewHolder.number.setText(orderList.get(viewHolder.getAdapterPosition()).getSoluong());
                 Toast.makeText(context,"up "+orderList.get(viewHolder.getAdapterPosition()).getSoluong(),Toast.LENGTH_LONG).show();
             }
         });
@@ -47,9 +50,16 @@ public class orderAdapter extends RecyclerView.Adapter<orderAdapter.MyViewHolder
         viewHolder.down.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int sl = parseInt(orderList.get(viewHolder.getAdapterPosition()).getSoluong()) - 1;
-                orderList.get(viewHolder.getAdapterPosition()).setSoluong(sl+"");
-                Toast.makeText(context,"down "+orderList.get(viewHolder.getAdapterPosition()).getSoluong(),Toast.LENGTH_LONG).show();
+                if (parseInt(viewHolder.number.getText().toString()) > 0) {
+                    int sl = parseInt(orderList.get(viewHolder.getAdapterPosition()).getSoluong()) - 1;
+                    orderList.get(viewHolder.getAdapterPosition()).setSoluong(sl + "");
+                    viewHolder.number.setText(orderList.get(viewHolder.getAdapterPosition()).getSoluong());
+                    Toast.makeText(context, "down " + orderList.get(viewHolder.getAdapterPosition()).getSoluong(), Toast.LENGTH_LONG).show();
+                }
+                if(parseInt(viewHolder.number.getText().toString()) == 0)
+                {
+                    viewHolder.number.setVisibility(View.GONE);
+                }
             }
         });
 

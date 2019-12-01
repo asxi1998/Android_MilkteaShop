@@ -4,39 +4,22 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.Toast;
-
-import com.example.thandroid_milkteabooking.Adapter.AdapterHomeListView;
-import com.example.thandroid_milkteabooking.model.HomeListView;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link HomeFragment.OnFragmentInteractionListener} interface
+ * {@link GetOrderFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link HomeFragment#newInstance} factory method to
+ * Use the {@link GetOrderFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class HomeFragment extends Fragment {
-    ListView lst;
-    AdapterHomeListView adapterHomeListView;
-
-
+public class GetOrderFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -48,7 +31,7 @@ public class HomeFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public HomeFragment() {
+    public GetOrderFragment() {
         // Required empty public constructor
     }
 
@@ -58,11 +41,11 @@ public class HomeFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment HomeFragment.
+     * @return A new instance of fragment GetOrderFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static HomeFragment newInstance(String param1, String param2) {
-        HomeFragment fragment = new HomeFragment();
+    public static GetOrderFragment newInstance(String param1, String param2) {
+        GetOrderFragment fragment = new GetOrderFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -77,49 +60,13 @@ public class HomeFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-
-    }
-
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
-        lst=view.findViewById(R.id.lstviewHome);
-
-
-
-        ArrayList<HomeListView> list= createNEW();
-        adapterHomeListView= new AdapterHomeListView(getContext(),list,R.layout.fragment_home);
-
-        lst.setAdapter(adapterHomeListView);
-        adapterHomeListView.notifyDataSetChanged();
-        lst.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-            }
-        });
-    }
-
-    private ArrayList<HomeListView> createNEW() {
-        HomeListView home= new HomeListView(R.drawable.image1,"Trà Sửa Phùng Gia","Ngon Bổ MẮC ");
-        HomeListView home1= new HomeListView(R.drawable.image2,"Trà Sửa Trân Châu","Có Thể Mua Đường Đen Về Thêm ");
-        HomeListView home2= new HomeListView(R.drawable.image3,"Trà Sửa cafe gì đó","Ngon Bổ VS 1 Số Nguời ");
-        HomeListView home3= new HomeListView(R.drawable.image3,"Trà Sửa cafe gì đó version 2","Ngon Bổ Rẻ ");
-        ArrayList<HomeListView> list= new ArrayList<>();
-        list.add(home);
-        list.add(home1);
-        list.add(home2);
-        list.add(home3);
-
-        return list;
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        return inflater.inflate(R.layout.fragment_get_order, container, false);
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -135,7 +82,7 @@ public class HomeFragment extends Fragment {
         if (context instanceof OnFragmentInteractionListener) {
             mListener = (OnFragmentInteractionListener) context;
         } else {
-//            throw new RuntimeException(context.toString()+ " must implement OnFragmentInteractionListener");
+
         }
     }
 
