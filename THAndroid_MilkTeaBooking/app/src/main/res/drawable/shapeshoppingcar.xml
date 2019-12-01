@@ -3,12 +3,11 @@
 
     <corners
 
-        android:bottomLeftRadius="30dp"
-        android:bottomRightRadius="30dp"/>
+        android:radius="50dp" />
 
     <gradient
-        android:endColor="#A3A0A0"
-        android:startColor="#DFD9D9"
+        android:endColor="#FCEBEB"
+        android:startColor="#FFFFFF"
         android:type="linear" />
 
     <!--If your shape requires only one solid color-->
@@ -23,12 +22,12 @@
     to add dashes to your stroke-->
     <stroke
         android:width="2dp"
-        android:color="#B1AEAE" />
+        android:color="#FF0000" />
 
     <!--If you want to add padding-->
-    <padding
-        android:left="10dp"
-        android:top="10dp"
-        android:right="10dp"
-        android:bottom="10dp" />
+   <padding
+         android:left="10dp"
+         android:top="10dp"
+         android:right="10dp"
+         android:bottom="10dp" />
 </shape>

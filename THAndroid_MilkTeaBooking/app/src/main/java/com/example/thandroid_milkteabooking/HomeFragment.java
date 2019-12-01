@@ -103,9 +103,9 @@ public class HomeFragment extends Fragment {
 
     private ArrayList<HomeListView> createNEW() {
         HomeListView home= new HomeListView(R.drawable.image1,"Trà Sửa Phùng Gia","Ngon Bổ MẮC ");
-        HomeListView home1= new HomeListView(R.drawable.image1,"Trà Sửa Trân Châu","Có Thể Mua Đường Đen Về Thêm ");
-        HomeListView home2= new HomeListView(R.drawable.image1,"Trà Sửa Trà Xanh","Ngon Bổ VS 1 Số Nguời ");
-        HomeListView home3= new HomeListView(R.drawable.image1,"Trà Sửa Gì Đó Đó","Ngon Bổ Rẻ ");
+        HomeListView home1= new HomeListView(R.drawable.image2,"Trà Sửa Trân Châu","Có Thể Mua Đường Đen Về Thêm ");
+        HomeListView home2= new HomeListView(R.drawable.image3,"Trà Sửa Trà Xanh","Ngon Bổ VS 1 Số Nguời ");
+        HomeListView home3= new HomeListView(R.drawable.image3,"Trà Sửa Gì Đó Đó","Ngon Bổ Rẻ ");
         ArrayList<HomeListView> list= new ArrayList<>();
         list.add(home);
         list.add(home1);

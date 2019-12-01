@@ -3,41 +3,49 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    >
 
     <ImageView
         android:id="@+id/imageViewdesignhome"
         android:layout_width="match_parent"
-        android:layout_height="276dp"
+        android:layout_height="226dp"
+        android:background="@drawable/image3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:background="@drawable/image3"/>
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/imageViewdesignhome"
+        android:layout_height="61dp"
+        android:background="@drawable/shapeimagehomelist"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:background="@drawable/shapeimagehomelist"
-        android:orientation="vertical">
-       <TextView
-           android:id="@+id/textviewTille"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:layout_marginLeft="30dp"
-           android:text="TITILE"
-           android:textSize="25dp"
-           android:textColor="#000000"/>
+        app:layout_constraintTop_toBottomOf="@id/imageViewdesignhome"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
+
+        <TextView
+            android:id="@+id/textviewTille"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:text="TITILE"
+            android:textColor="#000000"
+            android:textSize="18dp" />
+
         <TextView
             android:id="@+id/textviewDirection"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
             android:text="Direction"
-            android:textSize="25dp"
-            android:textColor="#000000"/>
+            android:textColor="#000000"
+            android:textSize="15dp" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
