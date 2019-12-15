@@ -61,7 +61,8 @@
                 android:text="-"
                 android:textColor="@color/colorPrimaryDark"
                 app:layout_constraintBottom_toTopOf="@+id/number_item"
-                app:layout_constraintEnd_toEndOf="parent" />
+                app:layout_constraintEnd_toEndOf="parent"
+                android:visibility="gone"/>
 
             <TextView
                 android:id="@+id/number_item"
@@ -73,7 +74,8 @@
                 android:textColor="#ffff"
                 android:textSize="20dp"
                 app:layout_constraintBottom_toTopOf="@+id/up_item"
-                app:layout_constraintEnd_toEndOf="parent" />
+                app:layout_constraintEnd_toEndOf="parent"
+                android:visibility="gone"/>
 
             <Button
                 android:id="@+id/up_item"

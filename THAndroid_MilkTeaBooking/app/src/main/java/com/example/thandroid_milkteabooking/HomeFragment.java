@@ -35,7 +35,7 @@ import java.util.List;
 public class HomeFragment extends Fragment {
     ListView lst;
     AdapterHomeListView adapterHomeListView;
-
+    OnSelectedListener mCallback;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -61,6 +61,7 @@ public class HomeFragment extends Fragment {
      * @return A new instance of fragment HomeFragment.
      */
     // TODO: Rename and change types and number of parameters
+
     public static HomeFragment newInstance(String param1, String param2) {
         HomeFragment fragment = new HomeFragment();
         Bundle args = new Bundle();
@@ -79,6 +80,10 @@ public class HomeFragment extends Fragment {
         }
 
     }
+    // Activity phải implement interface này
+    public interface OnSelectedListener {
+        public void onSelected(String value);
+    }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -88,7 +93,7 @@ public class HomeFragment extends Fragment {
 
 
 
-        ArrayList<HomeListView> list= createNEW();
+        final ArrayList<HomeListView> list= createNEW();
         adapterHomeListView= new AdapterHomeListView(getContext(),list,R.layout.fragment_home);
 
         lst.setAdapter(adapterHomeListView);

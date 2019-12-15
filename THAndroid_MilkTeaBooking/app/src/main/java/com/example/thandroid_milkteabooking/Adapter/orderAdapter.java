@@ -12,6 +12,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.thandroid_milkteabooking.SQLite;
 import com.example.thandroid_milkteabooking.model.order;
 import com.example.thandroid_milkteabooking.R;
 
@@ -27,6 +28,7 @@ public class orderAdapter extends RecyclerView.Adapter<orderAdapter.MyViewHolder
         this.orderList = orderList;
         this.context = context;
     }
+    //SQLite sqLite=new SQLite(this.context,"milktea.sqlite",null,1);
 
     @NonNull
     @Override
@@ -37,7 +39,18 @@ public class orderAdapter extends RecyclerView.Adapter<orderAdapter.MyViewHolder
             @Override
             public void onClick(View view) {
                 viewHolder.number.setVisibility(View.VISIBLE);
-
+                viewHolder.down.setVisibility(View.VISIBLE);
+                if(parseInt(viewHolder.number.getText().toString()) == 1)
+                {
+                   // thêm dữ liệu
+                    //sqLite.Insertcontacts(viewHolder.name.getText().toString(),viewHolder.image.getImageAlpha()+"",viewHolder.price.getText().toString(),viewHolder.number.getText().toString());
+                }
+                else {
+                    if (parseInt(viewHolder.number.getText().toString()) > 1)
+                    {
+                        //sqLite.Upadatecontacts(viewHolder.name.getText().toString(),viewHolder.image.getImageAlpha()+"",viewHolder.price.getText().toString(),viewHolder.number.getText().toString());
+                    }
+                }
                 int sl = parseInt(orderList.get(viewHolder.getAdapterPosition()).getSoluong()) + 1;
                 orderList.get(viewHolder.getAdapterPosition()).setSoluong(sl+"");
 //                OrderFragment up = new OrderFragment();
@@ -59,6 +72,7 @@ public class orderAdapter extends RecyclerView.Adapter<orderAdapter.MyViewHolder
                 if(parseInt(viewHolder.number.getText().toString()) == 0)
                 {
                     viewHolder.number.setVisibility(View.GONE);
+                    viewHolder.down.setVisibility(View.GONE);
                 }
             }
         });

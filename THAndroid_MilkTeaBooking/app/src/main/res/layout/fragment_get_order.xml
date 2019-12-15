@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".GetOrderFragment">
+    tools:context=".GetOrderFragment"
+    android:id="@+id/fragment_getorder">
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -19,26 +20,27 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ListView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/listView_lst_order"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="60dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewtop" >
+        app:layout_constraintTop_toBottomOf="@+id/textViewtop">
 
-    </ListView>
+    </androidx.recyclerview.widget.RecyclerView>
 
-    <Button
-        android:id="@+id/buttondat"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#ffff"
-        android:text="Đặt"
-        android:textColor="@color/colorPrimaryDark"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+    <!--    <Button-->
+<!--        android:id="@+id/buttondat"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:background="#ffff"-->
+<!--        android:text="Đặt"-->
+<!--        android:textColor="@color/colorPrimaryDark"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

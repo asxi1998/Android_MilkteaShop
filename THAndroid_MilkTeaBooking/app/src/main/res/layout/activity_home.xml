@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeActivity"
-    >
+    tools:context=".HomeActivity">
 
     <FrameLayout
         android:id="@+id/framelayoutHome"
@@ -16,6 +15,14 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
         android:paddingBottom="150dp">
     </FrameLayout>
+
+    <TextView
+        android:id="@+id/txtvalue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/framelayoutHome" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -62,6 +69,8 @@
                 android:layout_marginRight="70dp"
                 android:background="@drawable/shape"
                 android:src="@drawable/ic_voucher" />
+
+
 
         </LinearLayout>
 
@@ -115,6 +124,7 @@
 
     <ImageButton
         android:id="@+id/imageButtonshopping"
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/shapeshoppingcar"
