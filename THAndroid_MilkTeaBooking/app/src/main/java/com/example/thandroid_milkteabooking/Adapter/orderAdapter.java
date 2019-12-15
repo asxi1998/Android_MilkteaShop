@@ -93,8 +93,7 @@ public class orderAdapter extends RecyclerView.Adapter<orderAdapter.MyViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.image.setImageResource(R.drawable.ic_account_box_white_24dp);//orderList.get(position).getHinhanh());//sua
-        Log.d("abcccc",orderList.get(position).getHinhanh()+" fgdf"+orderList.get(position).getTen());
+        holder.image.setImageBitmap(orderList.get(position).getHinhanh());
         holder.name.setText(orderList.get(position).getTen());
         holder.price.setText(orderList.get(position).getMota());
         holder.number.setText(orderList.get(position).getSoluong());
