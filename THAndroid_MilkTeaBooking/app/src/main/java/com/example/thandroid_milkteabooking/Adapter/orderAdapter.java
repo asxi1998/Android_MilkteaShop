@@ -1,6 +1,7 @@
 package com.example.thandroid_milkteabooking.Adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.thandroid_milkteabooking.HomeActivity;
+import com.example.thandroid_milkteabooking.MainActivity;
 import com.example.thandroid_milkteabooking.SQLite;
 import com.example.thandroid_milkteabooking.model.order;
 import com.example.thandroid_milkteabooking.R;
@@ -56,7 +59,14 @@ public class orderAdapter extends RecyclerView.Adapter<orderAdapter.MyViewHolder
 //                OrderFragment up = new OrderFragment();
 //                up.Up(context);
                 viewHolder.number.setText(orderList.get(viewHolder.getAdapterPosition()).getSoluong());
-                Toast.makeText(context,"up "+orderList.get(viewHolder.getAdapterPosition()).getSoluong(),Toast.LENGTH_LONG).show();
+                if(HomeActivity.manggiohang.size()>0)
+                {
+
+                }
+                else
+                {
+
+                }
             }
         });
 
@@ -67,7 +77,6 @@ public class orderAdapter extends RecyclerView.Adapter<orderAdapter.MyViewHolder
                     int sl = parseInt(orderList.get(viewHolder.getAdapterPosition()).getSoluong()) - 1;
                     orderList.get(viewHolder.getAdapterPosition()).setSoluong(sl + "");
                     viewHolder.number.setText(orderList.get(viewHolder.getAdapterPosition()).getSoluong());
-                    Toast.makeText(context, "down " + orderList.get(viewHolder.getAdapterPosition()).getSoluong(), Toast.LENGTH_LONG).show();
                 }
                 if(parseInt(viewHolder.number.getText().toString()) == 0)
                 {
@@ -84,7 +93,8 @@ public class orderAdapter extends RecyclerView.Adapter<orderAdapter.MyViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.image.setImageResource(orderList.get(position).getHinhanh());
+        holder.image.setImageResource(R.drawable.ic_account_box_white_24dp);//orderList.get(position).getHinhanh());//sua
+        Log.d("abcccc",orderList.get(position).getHinhanh()+" fgdf"+orderList.get(position).getTen());
         holder.name.setText(orderList.get(position).getTen());
         holder.price.setText(orderList.get(position).getMota());
         holder.number.setText(orderList.get(position).getSoluong());
@@ -92,6 +102,7 @@ public class orderAdapter extends RecyclerView.Adapter<orderAdapter.MyViewHolder
 
     @Override
     public int getItemCount() {
+        Log.d("dfs",orderList.size()+"dfd");
         return orderList.size();
     }
 

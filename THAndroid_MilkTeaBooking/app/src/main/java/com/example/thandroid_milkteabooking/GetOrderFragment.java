@@ -79,15 +79,15 @@ public class GetOrderFragment extends Fragment {
     ArrayList<order> orderList;
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        v=view;
-        SP sp=new SP();
-        orderList = sp.createNEW();
-        orderAdapter orderAdapter = new orderAdapter(orderList, getContext());
-        recyclerView=view.findViewById(R.id.listView_lst_order);
-        recyclerView.setAdapter( orderAdapter);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(),RecyclerView.VERTICAL,false);
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
+//        v=view;
+//        SP sp=new SP();
+//        orderList = sp.createNEW();
+//        orderAdapter orderAdapter = new orderAdapter(orderList, getContext());
+//        recyclerView=view.findViewById(R.id.listView_lst_order);
+//        recyclerView.setAdapter( orderAdapter);
+//        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(),RecyclerView.VERTICAL,false);
+//        recyclerView.setLayoutManager(layoutManager);
+//        recyclerView.setItemAnimator(new DefaultItemAnimator());
     }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

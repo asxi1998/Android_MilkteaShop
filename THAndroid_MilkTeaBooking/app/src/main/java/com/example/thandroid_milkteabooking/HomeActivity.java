@@ -40,7 +40,8 @@ public class HomeActivity extends AppCompatActivity implements DemoFragmentInter
     LinearLayout linearLayout;
     BottomNavigationView navView;
     FrameLayout frameLayout ;
-    ArrayList<order> k;
+    public static ArrayList<order> manggiohang;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -88,24 +89,25 @@ public class HomeActivity extends AppCompatActivity implements DemoFragmentInter
                 fragment = new GetOrderFragment();
                 linearLayout.setVisibility(View.GONE);
                 btn.setVisibility(View.GONE);
-                List<order> lst = new ArrayList<>();
-                listviewdulieu=findViewById(R.id.recyclervieworder);
-                RecyclerView.Adapter arrayList=  listviewdulieu.getAdapter();
-               // sendData(arrayList);
 
-//                Bundle bundle= new Bundle();
-//                bundle.putStringArrayList("Chuoi",);
+
                 loadFragment(fragment);
             }
         });
+        if(manggiohang!=null)
+        {
 
-        SQLite sqLite;
-        sqLite=new SQLite(this,"milktea.sqlite",null,1);
-        sqLite.QueryData("CREATE TABLE IF NOT EXISTS array(Title NVARCHAR(50) PRIMARY KEY, Image NVARCHAR(50), Price NVARCHAR(50), soluong NVARCHAR(50))");
+
+        }else
+        {
+            manggiohang= new ArrayList<>();
+        }
+//        SQLite sqLite;
+//        sqLite=new SQLite(this,"milktea.sqlite",null,1);
+//        sqLite.QueryData("CREATE TABLE IF NOT EXISTS array(Title NVARCHAR(50) PRIMARY KEY, Image NVARCHAR(50), Price NVARCHAR(50), soluong NVARCHAR(50))");
 
 
     }
-    RecyclerView listviewdulieu;
     @Override
     public void sendData( RecyclerView.Adapter  lst) {
         GetOrderFragment demo1Fragment = (GetOrderFragment) getSupportFragmentManager().findFragmentById(R.id.fragment_getorder);

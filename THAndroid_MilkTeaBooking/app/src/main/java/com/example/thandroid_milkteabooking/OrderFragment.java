@@ -1,6 +1,9 @@
 package com.example.thandroid_milkteabooking;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.media.Image;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -10,6 +13,7 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +23,7 @@ import android.widget.Toast;
 import com.example.thandroid_milkteabooking.model.order;
 import com.example.thandroid_milkteabooking.Adapter.orderAdapter;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 
@@ -59,10 +64,17 @@ public class OrderFragment extends Fragment {
 
         recyclerView = view.findViewById(R.id.recyclervieworder);
         SP sp=new SP();
-        orderList = sp.createNEW();
-        orderAdapter = new orderAdapter(orderList, getContext());
+        try {
+            orderList = sp.createNEW();
+            Log.d("abc","thancong");
+        } catch (SQLException e) {
+            e.printStackTrace();
+            Log.d("abc","fgdfgd");
+        }
+        Log.d("hdhdhd",orderList.get(0).getTen());
+        orderAdapter = new orderAdapter(orderList, getContext().getApplicationContext());
         recyclerView.setAdapter(orderAdapter);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(),RecyclerView.VERTICAL,false);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext().getApplicationContext(),RecyclerView.VERTICAL,false);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
 
