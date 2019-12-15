@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
         progressBar=findViewById(R.id.progressBarMain);
 
 
-        CountDownTimer countDownTimer= new CountDownTimer(10000,88) {
+        CountDownTimer countDownTimer= new CountDownTimer(1000,88) {
             @Override
             public void onTick(long millisUntilFinished) {
                 int curent = progressBar.getProgress();

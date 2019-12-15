@@ -7,8 +7,7 @@ public class order {
     private Bitmap hinhanh;
     private String ten,mota,soluong;
 
-    public order(int image3, String trà_sửa_phùng_gia, String s) {
-    }
+
 
     public order() {
     }
@@ -21,9 +20,9 @@ public class order {
 //    }
 
     public order(Bitmap convertBitMap, String name, String s) {
-//        this.hinhanh = convertBitMap;
+        this.hinhanh = convertBitMap;
         this.ten = name;
-        this.mota = "4";
+        this.mota = "100000";
         this.soluong = s;
     }
 

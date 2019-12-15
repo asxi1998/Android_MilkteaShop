@@ -71,7 +71,7 @@ public class OrderFragment extends Fragment {
             e.printStackTrace();
             Log.d("abc","fgdfgd");
         }
-        Log.d("hdhdhd",orderList.get(0).getTen());
+//        Log.d("hdhdhd",orderList.get(0).getTen());
         orderAdapter = new orderAdapter(orderList, getContext().getApplicationContext());
         recyclerView.setAdapter(orderAdapter);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext().getApplicationContext(),RecyclerView.VERTICAL,false);
