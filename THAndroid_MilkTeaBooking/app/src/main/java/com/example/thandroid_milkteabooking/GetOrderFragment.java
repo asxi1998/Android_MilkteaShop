@@ -11,16 +11,31 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.thandroid_milkteabooking.Adapter.orderAdapter;
+import com.example.thandroid_milkteabooking.File.ChiTietHoaDon;
+import com.example.thandroid_milkteabooking.File.ChiTietHoaDonModel;
+import com.example.thandroid_milkteabooking.File.HoaDon;
+import com.example.thandroid_milkteabooking.File.HoaDonModel;
+import com.example.thandroid_milkteabooking.File.UserModel;
 import com.example.thandroid_milkteabooking.model.order;
 
+import net.sourceforge.jtds.jdbc.DateTime;
+
+import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 
@@ -77,17 +92,45 @@ public class GetOrderFragment extends Fragment {
     View v;
     RecyclerView recyclerView;
     ArrayList<order> orderList;
+    TextView textViewtongtien;
+    orderAdapter orderAdapter;
+    HoaDonModel hoaDonModel;
+    ChiTietHoaDonModel chiTietHoaDonModel;
+    Button btn;
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-//        v=view;
-//        SP sp=new SP();
-//        orderList = sp.createNEW();
-//        orderAdapter orderAdapter = new orderAdapter(orderList, getContext());
-//        recyclerView=view.findViewById(R.id.listView_lst_order);
-//        recyclerView.setAdapter( orderAdapter);
-//        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(),RecyclerView.VERTICAL,false);
-//        recyclerView.setLayoutManager(layoutManager);
-//        recyclerView.setItemAnimator(new DefaultItemAnimator());
+
+        textViewtongtien=view.findViewById(R.id.textViewtongtien);
+        recyclerView=view.findViewById(R.id.listView_lst_order);
+        btn=view.findViewById(R.id.button);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    OnClick();
+
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                    Toast.makeText(getContext().getApplicationContext(),"loi:"+e.getMessage(),Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+        int so=0;
+        for(int i=0;i<HomeActivity.manggiohang.size();i++)
+        {
+            so+=Integer.parseInt( HomeActivity.manggiohang.get(i).getMota());
+
+        }
+        textViewtongtien.setText(String.valueOf(so));
+        Log.d("aaaa",HomeActivity.manggiohang.size()+"aaaaaaaa");
+
+        orderAdapter = new orderAdapter(HomeActivity.manggiohang, getContext().getApplicationContext());
+        recyclerView.setAdapter(orderAdapter);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext().getApplicationContext(),RecyclerView.VERTICAL,false);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+
+
     }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -124,6 +167,29 @@ public class GetOrderFragment extends Fragment {
         super.onDetach();
         mListener = null;
     }
+
+    public void OnClick() throws SQLException {
+
+        hoaDonModel= new HoaDonModel();
+
+        UserModel userModel= new UserModel();
+        DateFormat dateFormat= new SimpleDateFormat("dd/MM/yyyy");
+        Date date= new Date();
+        String s= dateFormat.format(date);
+        HoaDon hd= new HoaDon(AccountFragment.sdt,s,Integer.parseInt( textViewtongtien.getText().toString()) );
+        hoaDonModel.Insert(hd);
+
+        int so=hoaDonModel.getID(hd);
+        for(int i=0;i<HomeActivity.manggiohang.size();i++) {
+            com.example.thandroid_milkteabooking.File.SP sp=new com.example.thandroid_milkteabooking.File.SP( HomeActivity.manggiohang.get(i).getTen(),null,0);
+            int user=userModel.getID(sp);
+            chiTietHoaDonModel= new ChiTietHoaDonModel();
+            chiTietHoaDonModel.Insert(new ChiTietHoaDon(so,user,Integer.parseInt( HomeActivity.manggiohang.get(i).getMota())/100000,Integer.parseInt(HomeActivity.manggiohang.get(i).getMota())));
+        }
+        Toast.makeText(getContext().getApplicationContext(),"Thanhcong",Toast.LENGTH_LONG).show();
+
+    }
+
 
     /**
      * This interface must be implemented by activities that contain this

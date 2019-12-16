@@ -34,7 +34,8 @@ public class OrderFragment extends Fragment {
 
     RecyclerView recyclerView;
     orderAdapter orderAdapter;
-    ArrayList<order> orderList;
+  public static   ArrayList<order> orderList;
+   public static ArrayList<order> giohang;
 
 
 //    private ArrayList<order> createNEW() {
@@ -56,6 +57,18 @@ public class OrderFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        if(giohang!=null)
+        {
+
+        }
+        else
+        {
+            giohang= new ArrayList<>();
+        }
+        for(int i=0;i<giohang.size();i++)
+        {
+            Log.d("dddd",giohang.get(i).getMota()+giohang.size());
+        }
         return inflater.inflate(R.layout.fragment_order, container, false);
     }
     @Override

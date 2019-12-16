@@ -9,6 +9,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ActionMenuView;
@@ -92,6 +93,11 @@ public class HomeActivity extends AppCompatActivity implements DemoFragmentInter
 
 
                 loadFragment(fragment);
+                manggiohang=OrderFragment.giohang;
+                for(int i=0;i<manggiohang.size();i++)
+                {
+                    Log.d("eeeee",manggiohang.get(i).getMota()+manggiohang.size());
+                }
             }
         });
         if(manggiohang!=null)

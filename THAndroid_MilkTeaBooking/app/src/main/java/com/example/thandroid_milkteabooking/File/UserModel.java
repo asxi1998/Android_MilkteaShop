@@ -31,6 +31,20 @@ public class UserModel {
         Log.d("con",list.size()+"sdfsd");
         return list;
     }
+    public int getID(SP hoaDon) throws SQLException {
+        connection = jdbcController.ConnnectionData(); // Tạo kết nối tới database
+        Statement statement = connection.createStatement();// Tạo đối tượng Statement.
+        String sql = "select ID from SP where ten='"+hoaDon.getName()+"'";
+        Log.d("sql",sql);
+        // Thực thi câu lệnh SQL trả về đối tượng ResultSet. // Mọi kết quả trả về sẽ được lưu trong ResultSet
+        ResultSet rs = statement.executeQuery(sql);
+        int id=0;
+        while (rs.next()) {
+            id=rs.getInt("ID");
+        }
+        connection.close();// Đóng kết nối
+        return id;
+    }
 
 //    public boolean Insert(SP objUser) throws SQLException {
 //        Statement statement = connection.createStatement();// Tạo đối tượng Statement.
